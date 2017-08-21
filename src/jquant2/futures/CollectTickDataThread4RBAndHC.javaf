@@ -1,0 +1,58 @@
+package jquant2.futures;
+
+import com.jquent2.calc.FutureConst;
+import test.thostmduserapi.CThostFtdcMdApi;
+
+/**
+ * Created by zcy on 2017/8/13.18:56:11
+ */
+public class CollectTickDataThread4RBAndHC extends CollectTickDataThread {
+    private CThostFtdcMdApi mdApi;
+    private MdSpiImpl mdSpi;
+
+    @Override
+    public void collect() {
+        //锁下载状态
+        System.out.println("开始收集数据");
+        FutureConst.getInstance().setLock(true);
+        /*CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(pszFlowPath,true);
+        String[] _ppInstrumentID = {"rb1801","hc1801"};
+        MdSpiCollection mdSpi = new MdSpiCollection(mdApi,_ppInstrumentID);
+        mdApi.RegisterSpi(mdSpi);
+        mdApi.RegisterFront(ctp1_MdAddress);
+        mdApi.Init();
+        mdApi.Join();*/
+        CThostFtdcMdApi mdApi = CThostFtdcMdApi.CreateFtdcMdApi(pszFlowPath,true);
+        MdSpiImpl mdSpi = new MdSpiImpl(mdApi);
+        mdApi.RegisterSpi(mdSpi);
+        mdApi.RegisterFront(ctp1_MdAddress);
+        mdApi.Init();
+        mdApi.Join();
+        //mdApi.Release();
+    }
+
+
+
+    public void collecttest(){
+        mdApi = CThostFtdcMdApi.CreateFtdcMdApi(pszFlowPath,true);
+        mdSpi = new MdSpiImpl(mdApi);
+        mdApi.RegisterSpi(mdSpi);
+        mdApi.RegisterFront(ctp1_MdAddress);
+        mdApi.Init();
+        mdApi.Join();
+    }
+
+    @Override
+    public void run() {
+        //while (!exit);
+        try {
+            //if(!isInterrupted()){
+            collecttest();
+            //}
+        }catch (ThreadDeath e){
+            //锁下载状态
+            System.out.println("终止收集数据");
+            FutureConst.getInstance().setLock(false);
+        }
+    }
+}

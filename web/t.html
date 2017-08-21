@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>EasyUI-test</title>
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <script src="/Scripts/jquery/jquery-1.11.0.min.js"></script>
+    <script src="/Scripts/jquery-extensions/jquery.jdirk.js"></script>
+    <link href="/Scripts/jquery-easyui/jquery-easyui-1.4.3/themes/default/easyui.css" rel="stylesheet" />
+    <link href="/Scripts/jquery-easyui/jquery-easyui-1.4.3/themes/icon.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-easyui/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script src="/Scripts/jquery-easyui/jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>
+    <script src="/Scripts/echarts3/echarts.js"></script>
+
+    <link href="/Content/icons/icon-other.css" rel="stylesheet" />
+    <link href="/Scripts/jquery-easyui-extensions/base/jeasyui.extensions.base.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-easyui-extensions/base/jeasyui.extensions.base.loading.js"></script>
+    <script>
+        $(function () {
+            var array = ["Spider", "Bat", "Thor", "Iron"];
+            array.forEach(function (item) {
+                $("#btn" + item).click(function () {
+                    var lb = $(this), opts = lb.linkbutton("options"), textSpan = lb.find("span.l-btn-text"), area = $("#area" + item);
+
+                    if (opts.text.contains("罩")) {
+                        opts.text = opts.text.replace("罩", "掀");
+                        $.easyui.loading({ msg: item + " 已被引力波覆盖", locale: area });
+                    }
+                    else if (opts.text.contains("掀")) {
+                        opts.text = opts.text.replace("掀", "罩");
+                        $.easyui.loaded(area);
+                    }
+                    textSpan.removeClass("l-btn-empty").text(opts.text);
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="easyui-layout" data-options="fit:true">
+        <div id="areaSpider" data-options="region:'north',title:'北边',border:false" style="height:100px;border-bottom-width:1px;">
+            大家好，我是蜘蛛侠！
+        </div>
+        <div id="areaBat" data-options="region:'west',title:'西边',border:false" style="width: 150px;border-right-width:1px;border-bottom-width:1px;">
+            我是蝙蝠侠！
+        </div>
+        <div data-options="region:'center',title:'中间',border:false" style="text-align: center; font-size: 14px; font-weight: bold; padding: 20px; border-bottom-width: 1px;">
+
+            <br />
+
+            <br />
+            <br />
+            <a id="btnSpider" class="easyui-linkbutton" data-options="iconCls:'icon-spider-man',toggle:true">开始收集</a>
+            <a id="btnBat" class="easyui-linkbutton" data-options="iconCls:'icon-bat-man',toggle:true">结束收集</a>
+            <a id="btnThor" class="easyui-linkbutton" data-options="iconCls:'icon-thor_hammer',toggle:true">判断收集状态</a>
+        </div>
+        <div id="areaThor" data-options="region:'east',title:'东边',border:false" style="width: 150px; border-left-width: 1px; border-bottom-width: 1px; ">
+            我是锤子索尔！
+        </div>
+        <div id="areaIron" data-options="region:'south',title:'南边',border:false" style="height:100px;">
+            大家好，我是钢铁侠！
+        </div>
+    </div>
+</body>
+</html>

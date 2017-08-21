@@ -7,13 +7,32 @@
     <listener>
         <listener-class>com.jquent2.calc.StockListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.jquent2.calc.FutureListener</listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>StockServlet</servlet-name>
         <servlet-class>com.jquent2.calc.StockServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FutureServlet</servlet-name>
+        <servlet-class>com.jquent2.calc.FutureServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CtpDataServlet</servlet-name>
+        <servlet-class>com.jquent2.calc.CtpDataServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StockServlet</servlet-name>
         <url-pattern>/stockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FutureServlet</servlet-name>
+        <url-pattern>/futureServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtpDataServlet</servlet-name>
+        <url-pattern>/ctpDataServlet</url-pattern>
     </servlet-mapping>
 </web-app>

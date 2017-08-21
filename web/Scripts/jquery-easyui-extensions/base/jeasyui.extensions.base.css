@@ -1,0 +1,5 @@
+﻿/*jeasyui.extensions.base.loading.js*/
+.loading-locale { position: relative; }
+.loading-container { position: absolute; width: 100%; height: 100%; left: 0; top: 0; }
+.loading-mask { display: block; }
+.loading-message { display: block; left: 50%; font-size: 12px; }

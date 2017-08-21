@@ -12,7 +12,7 @@ public class StockListener implements ServletContextListener {
     public void contextInitialized (ServletContextEvent sce){
         //init operation 初始化 后执行定时刷新
         Timer timer = new Timer();
-        timer.schedule(new MyTask(), 3000, 30000);
+        //timer.schedule(new MyTask(), 3000, 30000);
         Const.getInstance().setLock(false);
     }
     @Override

@@ -20,6 +20,5 @@ public class Const {
         return ourInstance;
     }
 
-    private Const() {
-    }
+    private Const() {}
 }

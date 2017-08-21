@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.apache.httpcomponents:httpcore-ab:4.4.6" type="repository">
+    <properties maven-id="org.apache.httpcomponents:httpcore-ab:4.4.6" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/httpcore-ab-4.4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/httpcore-4.4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
